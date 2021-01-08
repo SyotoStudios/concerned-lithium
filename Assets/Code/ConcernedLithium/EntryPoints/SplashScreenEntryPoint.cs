@@ -10,7 +10,7 @@ namespace ConcernedLithium
     public class SplashScreenEntryPoint : SceneEntryPoint
     {
         public SceneReference HomeScreen;
-        //public SplashScreenUI SplashScreenUI;
+        public SplashScreenUI SplashScreenUI;
 
         public bool UseSimulatedLoad = true;
         public int MessagesToUse = 5;
@@ -36,7 +36,7 @@ namespace ConcernedLithium
             }
             
             await batch.ProcessBatch((progress) => {
-                //SplashScreenUI.UpdateProgress(progress.Progress, progress.Description);
+                SplashScreenUI.UpdateProgress(progress.Progress, progress.Description);
             });
 
             await SceneOrchestrator.LoadScene(LoadSceneMode.Single, HomeScreen);
