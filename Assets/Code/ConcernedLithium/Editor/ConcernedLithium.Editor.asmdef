@@ -1,0 +1,18 @@
+{
+    "name": "ConcernedLithium.Editor",
+    "rootNamespace": "ConcernedLithium.Editor",
+    "references": [
+        "GUID:39d82040e86d3a84999a1d97a20bffee"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
