@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 90931750}
   - component: {fileID: 90931749}
-  - component: {fileID: 90931748}
   - component: {fileID: 90931751}
   m_Layer: 0
   m_Name: Main Camera
@@ -142,14 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &90931748
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90931747}
-  m_Enabled: 1
 --- !u!20 &90931749
 Camera:
   m_ObjectHideFlags: 0
@@ -1052,7 +1043,7 @@ MonoBehaviour:
     scenePath: Assets/Data/Scenes/HomeScreen.unity
   SplashScreenUI: {fileID: 1834802166}
   UseSimulatedLoad: 1
-  MessagesToUse: 5
+  MessagesToUse: 2
   ArtificialMessages:
   - Message: A
     Duration: 500
