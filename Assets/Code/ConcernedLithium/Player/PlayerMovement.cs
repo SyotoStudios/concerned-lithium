@@ -15,8 +15,16 @@ namespace ConcernedLithium
         public float GroundCheckDistance = 2.0f;
         public float GroundCheckThreshold = 0.05f;
         public Vector2 MouseSensitivity = new Vector2(1.0f, 1.0f);
+        [Header("Speed")]
         public float WalkSpeed = 8.0f;
+        public float RunSpeed = 15.0f;
+        public float CrouchSpeed = 5.0f;
         public float SurfaceFrictionMultiplier = 1.0f;
+
+        private float Speed;
+        private bool isGrounded;
+        private bool isCrouched;
+        private bool isSprinting;
 
         [Header("Debug Info")]
         public bool Grounded;
@@ -42,7 +50,7 @@ namespace ConcernedLithium
         private void Update() {
             CollectInputs();
             GroundCheck();
-
+            
             // Calculate rotation
             LookRotationX += _mouseY;
             LookRotationX = Mathf.Clamp(LookRotationX, -80, 80);
@@ -53,9 +61,10 @@ namespace ConcernedLithium
 
             // Calculate movement direction
             Vector3 newVelocity = new Vector3(0, 0, 0);
+            MovementSpeed(newVelocity);
             Vector3 inputVelocityDirection = new Vector3(_horizontal, 0, _vertical).normalized;
-            Vector3 inputVelocity = inputVelocityDirection * WalkSpeed;
-
+            Vector3 inputVelocity = inputVelocityDirection * Speed;
+    
             newVelocity += transform.rotation * inputVelocity;
 
             // Calculate gravity
@@ -108,5 +117,47 @@ namespace ConcernedLithium
             PlayerCamera.transform.position = CameraProxy.position;
             PlayerCamera.transform.rotation = CameraProxy.rotation;
         }
-    }
+
+        public void MovementSpeed(Vector3 newVelocity)
+        {
+            //This method takes care of handling how fast the player will move by multiplying modifiers with 
+            //core values. for example if an item gives 10% MS then the movespeadmodifier will be 1.1 and multiplied
+            //by what ever speed is being requested by the player. 
+
+            if (newVelocity.magnitude < 0.05f)
+            {
+                isSprinting = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                isSprinting = !isSprinting;
+                if (isCrouched == true)
+                {
+                    isCrouched = !isCrouched;
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                isCrouched = !isCrouched;
+                if (isSprinting == true)
+                {
+                    isSprinting = !isSprinting;
+                }
+            }
+
+            if (Input.GetKey(KeyCode.LeftShift) == true || isSprinting)
+            {
+                Speed = RunSpeed;
+            }
+            else if (Input.GetKey(KeyCode.LeftControl) == true || isCrouched)
+            {
+                Speed = CrouchSpeed;
+            }
+            else
+            {
+                Speed = WalkSpeed;
+            }
+        }
+    }  
 }

@@ -86,6 +86,8 @@ MonoBehaviour:
   GroundCheckThreshold: 0.05
   MouseSensitivity: {x: 1, y: 1}
   WalkSpeed: 8
+  RunSpeed: 15
+  CrouchSpeed: 5
   SurfaceFrictionMultiplier: 1
   Grounded: 0
   SurfaceFriction: 0
