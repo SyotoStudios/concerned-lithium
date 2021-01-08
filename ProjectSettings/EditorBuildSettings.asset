@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Data/Scenes/HomeScreen.unity
     guid: 3ec983f06a437464d854ccd6fd3d5574
+  - enabled: 1
+    path: Assets/Data/Scenes/Levels/Dan00.unity
+    guid: e0fa7e56859e43c43a08db23cad2093b
+  - enabled: 1
+    path: Assets/Data/Scenes/Levels/Level00.unity
+    guid: 62697c9a269425a43a6f6fed45c4953f
   m_configObjects: {}
